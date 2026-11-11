@@ -169,7 +169,7 @@ reportAndExit = (errorReport, options) ->
         process.exit errorReport.getExitCode()
 
 # Declare command line options.
-options = yargs
+options = yargs(process.argv.slice(2))
             .usage('Usage: coffeelint [options] source [...]')
             .alias('f', 'file')
             .alias('h', 'help')
