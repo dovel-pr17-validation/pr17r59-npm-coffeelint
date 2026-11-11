@@ -1,0 +1,6 @@
+lib/*
+node_modules
+*.log
+utils
+.package.json
+.node-version

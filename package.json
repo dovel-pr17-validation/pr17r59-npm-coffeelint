@@ -1,0 +1,54 @@
+{
+  "name": "@coffeelint/cli",
+  "description": "Lint your CoffeeScript",
+  "version": "5.2.11",
+  "homepage": "https://coffeelint.github.io/",
+  "keywords": [
+    "lint",
+    "coffeescript",
+    "coffee-script"
+  ],
+  "author": "Tony Brix <Tony@Brix.ninja> (https://Tony.Brix.ninja)",
+  "main": "./lib/coffeelint.js",
+  "engines": {
+    "node": ">=12.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coffeelint/coffeelint.git"
+  },
+  "bin": {
+    "coffeelint": "./bin/coffeelint"
+  },
+  "dependencies": {
+    "coffeescript": "2.7.0",
+    "glob": "^13.0.6",
+    "ignore": "^7.0.12",
+    "resolve": "^1.22.13",
+    "strip-json-comments": "^3.1.1",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^7.0.0",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^11.0.1",
+    "@semantic-release/github": "^12.0.10",
+    "@semantic-release/npm": "^13.2.0",
+    "@semantic-release/release-notes-generator": "^14.1.1",
+    "browserify": "^17.0.1",
+    "coffeeify": "^3.0.1",
+    "semantic-release": "^25.0.9",
+    "underscore": "^1.13.8",
+    "vows": "^0.8.3"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "npm run compile && node ./vowsrunner.js --dot-matrix test/*.coffee test/*.litcoffee",
+    "testrule": "npm run compile && node ./vowsrunner.js --spec",
+    "lint": "npm run compile && node ./bin/coffeelint .",
+    "lint-csv": "npm run compile && node ./bin/coffeelint --reporter csv .",
+    "lint-jslint": "npm run compile && node ./bin/coffeelint --reporter jslint .",
+    "compile": "cake compile",
+    "prepublishOnly": "npm run compile"
+  }
+}
